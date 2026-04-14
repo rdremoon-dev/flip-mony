@@ -11,7 +11,7 @@ const fromCurr = document.querySelector('.from select');
 const toCurr = document.querySelector('.to select');
 const msg = document.querySelector('.msg');
 
-// Populate dropdowns
+// dropdowns
 for (let select of dropdowns) {
   for (let currCode in countryList) {
     let newOption = document.createElement('option');
@@ -29,18 +29,18 @@ for (let select of dropdowns) {
   });
 }
 
-// 2. Fixed Flag logic to find the <img> inside .select-container
+// Fixed Flag logic
 const updateFlag = element => {
   let currCode = element.value;
   let countryCode = countryList[currCode];
   let newSrc = `https://flagsapi.com/${countryCode}/flat/64.png`;
 
-  // Use .closest to find the wrapper, then find the img inside it
+
   let img = element.closest('.select-container').querySelector('img');
   img.src = newSrc;
 };
 
-// 3. Updated fetch logic for the new API (Lowercase required)
+
 async function updateExchangeRate() {
   let amountInput = document.querySelector('.amount input');
   let amountVal = amountInput.value;
